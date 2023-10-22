@@ -1,12 +1,10 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
-import DashboardWidget from '../components/DashboardWidget.astro';
 ---
 
 <DefaultLayout title="Dashboard">
   <section>
     <h1>Welcome Astronaut 🧑‍🚀</h1><br>
-    <p class="size-20">Build fast dashboards, faster (and accessible).</p>
   </section>
   <section class="margin-32">
     <div class="space-content">
@@ -15,25 +13,13 @@ import DashboardWidget from '../components/DashboardWidget.astro';
         <p id="current-time" class="size-12"></p>
       </div>
       <div class="grid small-grid-1 medium-grid-2 large-grid-3 equal-height">
-        <DashboardWidget />
-        <DashboardWidget
-          number="+33"
-          title="Products sold"
-        />
-        <DashboardWidget
-          number="-120"
-          title="Images deleted"
-          type="error"
-        />
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
+        <!-- Keypad Widget -->
+        <div class="keypad-widget radius-large space-96">
+          <a href="/keypad/" class="keypad-link">
+            <img src="/ios-keypad-5.png" alt="Keypad" class="keypad-image"/>
+            <span class="keypad-title">Keypad</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -43,3 +29,30 @@ import DashboardWidget from '../components/DashboardWidget.astro';
   const date = new Date()
   document.querySelector('#current-time').innerHTML = `<em>${date.toDateString()}</em>`
 </script>
+
+<style>
+  .keypad-widget {
+    border: 4px solid grey;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .keypad-link {
+    display: block;
+    text-decoration: none;
+    color: white; /* Set the text color to white */
+    font-size: 80px; /* Set the font size to make it bigger */
+  }
+
+  .keypad-image {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .keypad-title {
+    display: block;
+    margin-top: 10px;
+    font-size: 44px;
+  }
+</style>
